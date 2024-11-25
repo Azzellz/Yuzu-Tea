@@ -32,16 +32,7 @@ jobs:
       # 构建项目
       - name: Build project
         run: pnpm run build
-
-  deploy:
-    needs: build  # 依赖 build 作业的成功执行
-    runs-on: ubuntu-latest
-
-    steps:
-      # 检出代码到运行器
-      - name: Checkout code
-        uses: actions/checkout@v3
-
+        
       # 使用 SSH 部署到服务器
       - name: Deploy to Server
         uses: appleboy/scp-action@v0.1.6
@@ -51,3 +42,22 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: ./output/  # 本地构建后的文件夹路径
           target: ~/apps/yuzu-tea  # 服务器上的部署路径
+
+  # deploy:
+  #   needs: build  # 依赖 build 作业的成功执行
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     # 检出代码到运行器
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+
+  #     # 使用 SSH 部署到服务器
+  #     - name: Deploy to Server
+  #       uses: appleboy/scp-action@v0.1.6
+  #       with:
+  #         host: ${{ secrets.SSH_HOST }}
+  #         username: ${{ secrets.SSH_USER }}
+  #         key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #         source: ./output/  # 本地构建后的文件夹路径
+  #         target: ~/apps/yuzu-tea  # 服务器上的部署路径
