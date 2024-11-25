@@ -61,7 +61,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: ".output/"           # 使用下载的构建产物
+          SOURCE: "dist/"           # 使用下载的构建产物
           TARGET: "~/apps/yuzu-tea"   # 部署目标目录
           ARGS: "-avzr --delete"
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
