@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-output   # artifact 的名称
-          path: .output/       # 构建产物的路径
+          path: .output     # 构建产物的路径
 
   CD:
     needs: CI
@@ -54,7 +54,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-output   # 与上面上传的名称一致
-          path: .output/       # 下载到的路径
+          path: .output/     # 下载到的路径
 
       # 使用 SSH 部署到服务器
       - name: Upload to Deploy Server
