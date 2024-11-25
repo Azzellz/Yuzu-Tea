@@ -17,11 +17,11 @@ jobs:
     steps:
       # 检出代码到运行器
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # 设置 Node.js 环境
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -35,7 +35,7 @@ jobs:
 
       # 将构建产物保存为 artifact
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-output   # artifact 的名称
           path: .output     # 构建产物的路径
@@ -47,11 +47,11 @@ jobs:
     steps:
       # 检出代码到运行器
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # 下载构建产物
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-output   # 与上面上传的名称一致
           path: .output/     # 下载到的路径
