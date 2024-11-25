@@ -34,7 +34,7 @@ jobs:
         run: pnpm run build
 
   CD:
-    needs: CD  # 依赖 build 作业的成功执行
+    needs: CI  # 依赖 build 作业的成功执行
     runs-on: ubuntu-latest
 
     steps:
