@@ -1,18 +1,18 @@
 name: CI/CD
 
-# 触发条件（当代码推送或创建 PR 时触发）
+# 触发条件
 on:
   push:
     branches:
-      - main     # 在 main 分支 push 时触发
+      - main
   pull_request:
     branches:
-      - main     # 在 main 分支创建 PR 时触发
+      - main
 
 # 定义工作流的作业
 jobs:
   CI:
-    runs-on: ubuntu-latest  # 使用的运行环境，可以是 Ubuntu、Windows、macOS
+    runs-on: ubuntu-latest
 
     steps:
       # 检出代码到运行器
@@ -33,8 +33,15 @@ jobs:
       - name: Build project
         run: pnpm run build
 
+      # 将构建产物保存为 artifact
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output   # artifact 的名称
+          path: .output/       # 构建产物的路径
+
   CD:
-    needs: CI  # 依赖 build 作业的成功执行
+    needs: CI
     runs-on: ubuntu-latest
 
     steps:
@@ -42,19 +49,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 下载构建产物
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: build-output   # 与上面上传的名称一致
+          path: .output/       # 下载到的路径
+
       # 使用 SSH 部署到服务器
       - name: Upload to Deploy Server
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
-          # SSH_PRIVATE_KEY为准备工作步骤三中生成密钥对里的私钥
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          # 指定当前目录中要上传的内容
-          SOURCE: ".output/"
-          # 指定上传到部署机器的哪个目录下
-          TARGET: "~/apps/yuzu-tea"
-          # 上传前指令，此处用于清空TARGET下的文件
+          SOURCE: ".output/"           # 使用下载的构建产物
+          TARGET: "~/apps/yuzu-tea"   # 部署目标目录
           ARGS: "-avzr --delete"
-          # SSH_HOST为机器的公网IP
-          REMOTE_HOST: ${{ secrets.SSH_HOST}}
-          # SSH_USER为登录机器时用到账号名
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
