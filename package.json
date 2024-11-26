@@ -10,8 +10,19 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/fonts": "^0.10.2",
+    "@nuxt/icon": "^1.8.2",
+    "@nuxt/ui": "^2.19.2",
+    "@nuxtjs/i18n": "9.0.0-rc.2",
+    "aos": "^2.3.4",
     "nuxt": "^3.14.1592",
+    "typed.js": "^2.1.0",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "@unocss/nuxt": "^0.64.1",
+    "unocss": "^0.64.1"
   }
 }
