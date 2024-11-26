@@ -66,3 +66,5 @@ jobs:
           ARGS: "-avzr --delete"
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
+          SCRIPT_AFTER: |
+            pm2 start yuzu-tea
