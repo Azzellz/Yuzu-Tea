@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Welcome from "./components/Welcome.vue";
-import Profile from "./components/Profile.vue";
+import Profile from "./components/profile/Profile.vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
 const totalHeight = ref("100%");
@@ -9,7 +9,7 @@ onMounted(() => {
     AOS.init({
         mirror: true, // whether elements should animate out while scrolling past them
     });
-    totalHeight.value = `${window.innerHeight * 3}px`;
+    totalHeight.value = `${window.innerHeight * 5}px`;
     unitStyle.height = `${window.innerHeight}px`;
 });
 </script>
