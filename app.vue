@@ -9,7 +9,7 @@ onMounted(() => {
     AOS.init({
         mirror: true, // whether elements should animate out while scrolling past them
     });
-    totalHeight.value = `${window.innerHeight * 2}px`;
+    totalHeight.value = `${window.innerHeight * 3}px`;
     unitStyle.height = `${window.innerHeight}px`;
 });
 </script>
