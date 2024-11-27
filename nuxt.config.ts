@@ -8,11 +8,20 @@ export default defineNuxtConfig({
             dir: "dist", // 自定义输出目录
         },
     },
-
-    modules: ["@nuxt/fonts", "@nuxt/icon", "@unocss/nuxt", "@nuxtjs/i18n", "@nuxt/ui"],
+    modules: [
+        "@nuxt/fonts",
+        "@nuxt/icon",
+        "@unocss/nuxt",
+        "@nuxtjs/i18n",
+        "@nuxt/ui",
+        "nuxt-gtag",
+    ],
     i18n: {
         vueI18n: "./i18n.config.ts",
         locales: ["zh", "en", "jp", "fr"],
         defaultLocale: "zh",
+    },
+    gtag: {
+        id: process.env.GTAG_ID,
     },
 });

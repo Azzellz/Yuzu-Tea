@@ -16,6 +16,7 @@
     "@nuxtjs/i18n": "9.0.0-rc.2",
     "aos": "^2.3.4",
     "nuxt": "^3.14.1592",
+    "nuxt-gtag": "^3.0.2",
     "typed.js": "^2.1.0",
     "vue": "latest",
     "vue-router": "latest"
