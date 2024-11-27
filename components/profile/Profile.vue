@@ -5,7 +5,7 @@
         <AnimCard data-aos="flip-right" class="ml-50 relative -top-25" />
         <MusicCard
             data-aos="flip-right"
-            class="ml-auto mr-50 relative -top-25"
+            class="ml-auto mr-25 relative -top-25"
         />
         <TechCard data-aos="flip-left" class="w-125 relative -top-15 ml-50" />
     </div>

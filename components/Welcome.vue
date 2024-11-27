@@ -17,7 +17,7 @@ let typed: Typed | null = null;
 onMounted(() => {
     if (titleRef.value) {
         typed = new Typed(titleRef.value, {
-            strings: ["Welcome to Yuzu Tea!!!!!"],
+            strings: ["Welcome to Yuzu Tea🍵!!!!!"],
             startDelay: 1000,
             typeSpeed: 50,
         });

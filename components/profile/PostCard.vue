@@ -1,6 +1,6 @@
 <template>
     <div
-        class="w-100 min-h-50 shadow-lg flex flex-col rounded-md bg-slate-50"
+        class="w-120 min-h-50 shadow-lg flex flex-col rounded-md bg-slate-50"
     >
         <div class="flex-2/5">
             <img class="rounded-t-md" src="/img/ksm.png" />
