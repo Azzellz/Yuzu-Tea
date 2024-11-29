@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import Welcome from "./components/Welcome.vue";
 import Profile from "./components/profile/Profile.vue";
+import Prologue from "./components/Prologue.vue";
+import Epilogue from "./components/Epilogue.vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+
 const totalHeight = ref("100%");
 const unitStyle = reactive({ height: "100%" });
 onMounted(() => {
@@ -15,9 +18,10 @@ onMounted(() => {
 </script>
 
 <template>
-    <div id="app" :style="{ height: totalHeight }">
-        <Welcome :style="unitStyle" />
+    <div id="app" class="flex flex-col" :style="{ height: totalHeight }">
+        <Prologue :style="unitStyle" />
         <Profile :style="unitStyle" />
+        <Epilogue class="mt-auto" :style="unitStyle" />
     </div>
 </template>
 

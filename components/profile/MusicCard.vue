@@ -1,60 +1,64 @@
 <template>
-    <div
-        class="ml-50 w-150 min-h-50 shadow-lg flex flex-col rounded-md bg-slate-50"
-    >
-        <!-- 背景图 -->
-        <div class="flex-2/5">
-            <Transition
-                mode="out-in"
-                enter-active-class="animate__animated animate__fadeIn"
-                leave-active-class="animate__animated animate__fadeOut"
-            >
-                <img
-                    :key="count"
-                    :src="currentBackground"
-                    class="rounded-t-md"
-                    alt="Background"
-                />
-            </Transition>
-        </div>
-        <!-- 播放区 -->
-        <div class="flex-2/5 flex items-center gap-5 p-5">
-            <!-- 头像区 -->
-            <img
-                class="h-12 rounded-full shadow-md cursor-pointer hover:scale-110 transition-all"
-                :src="`/music/${currentMusic?.key}/icon.png`"
-                alt="Icon"
-            />
-            <!-- 介绍区 -->
-            <div
-                v-show="currentMusic?.key === currentMusicKey"
-                class="flex flex-col"
-            >
-                <h1 class="font-bold">{{ currentMusic?.name }}</h1>
-                <p class="text-gray-500">
-                    {{ currentMusic?.description }}
-                </p>
+    <div class="w-150 min-h-50">
+        <TypeText
+            class="text-4xl mx-auto mb-5 color-white"
+            text="What music do I listen to?"
+        />
+        <div class="shadow-lg flex flex-col rounded-md bg-slate-50">
+            <!-- 背景图 -->
+            <div class="flex-2/5">
+                <Transition
+                    mode="out-in"
+                    enter-active-class="animate__animated animate__fadeIn"
+                    leave-active-class="animate__animated animate__fadeOut"
+                >
+                    <img
+                        :key="count"
+                        :src="currentBackground"
+                        class="rounded-t-md"
+                        alt="Background"
+                    />
+                </Transition>
             </div>
             <!-- 播放区 -->
-            <div class="ml-auto">
-                <audio
-                    :src="`/music/${currentMusic?.key}/music.mp3`"
-                    controls
+            <div class="flex-2/5 flex items-center gap-5 p-5">
+                <!-- 头像区 -->
+                <img
+                    class="h-12 rounded-full shadow-md cursor-pointer hover:scale-110 transition-all"
+                    :src="`/music/${currentMusic?.key}/icon.png`"
+                    alt="Icon"
+                />
+                <!-- 介绍区 -->
+                <div
+                    v-show="currentMusic?.key === currentMusicKey"
+                    class="flex flex-col"
+                >
+                    <h1 class="font-bold">{{ currentMusic?.name }}</h1>
+                    <p class="text-gray-500">
+                        {{ currentMusic?.description }}
+                    </p>
+                </div>
+                <!-- 播放区 -->
+                <div class="ml-auto">
+                    <audio
+                        :src="`/music/${currentMusic?.key}/music.mp3`"
+                        controls
+                    />
+                </div>
+            </div>
+            <!-- 选择区 -->
+            <div class="flex-1/5 flex gap-5 px-5 pb-5">
+                <img
+                    v-for="music in musicList.filter(
+                        (music) => music.key !== currentMusicKey
+                    )"
+                    :key="music.key"
+                    @click="handleSwitch(music.key)"
+                    class="h-12 rounded-full shadow-md cursor-pointer hover:scale-110 transition-all"
+                    :src="`/music/${music.key}/icon.png`"
+                    alt="Icon"
                 />
             </div>
-        </div>
-        <!-- 选择区 -->
-        <div class="flex-1/5 flex gap-5 px-5 pb-5">
-            <img
-                v-for="music in musicList.filter(
-                    (music) => music.key !== currentMusicKey
-                )"
-                :key="music.key"
-                @click="handleSwitch(music.key)"
-                class="h-12 rounded-full shadow-md cursor-pointer hover:scale-110 transition-all"
-                :src="`/music/${music.key}/icon.png`"
-                alt="Icon"
-            />
         </div>
     </div>
 </template>

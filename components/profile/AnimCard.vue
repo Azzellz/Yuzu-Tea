@@ -1,44 +1,55 @@
 <template>
-    <div class="w-120 min-h-50 shadow-lg flex flex-col rounded-md bg-slate-50">
-        <!-- 背景图 -->
-        <div class="flex-2/5">
-            <Transition
-                mode="out-in"
-                enter-active-class="animate__animated animate__fadeIn"
-                leave-active-class="animate__animated animate__fadeOut"
-            >
+    <div class="w-120 min-h-50">
+        <TypeText
+            class="text-4xl mx-auto mb-5 color-white"
+            text="What anime am I watching?"
+        />
+        <div class="shadow-lg flex flex-col rounded-md bg-slate-50">
+            <!-- 背景图 -->
+            <div class="flex-2/5">
+                <Transition
+                    mode="out-in"
+                    enter-active-class="animate__animated animate__fadeIn"
+                    leave-active-class="animate__animated animate__fadeOut"
+                >
+                    <img
+                        :key="count"
+                        :src="currentBackground"
+                        class="rounded-t-md"
+                        alt="Background"
+                    />
+                </Transition>
+            </div>
+            <!-- 描述与选择 -->
+            <div class="flex-2/5 flex gap-5 p-5">
+                <!-- 头像区 -->
                 <img
-                    :key="count"
-                    :src="currentBackground"
-                    class="rounded-t-md"
-                    alt="Background"
+                    v-for="anim in animList"
+                    :key="anim.key"
+                    @click="handleSwitch(anim.key)"
+                    class="h-12 p-2 rounded shadow-md cursor-pointer hover:scale-110 transition-all"
+                    :src="`/img/anim/${anim.key}/icon.png`"
+                    alt="Avatar"
                 />
-            </Transition>
-        </div>
-        <!-- 描述与选择 -->
-        <div class="flex-2/5 flex gap-5 p-5">
-            <!-- 头像区 -->
-            <img
-                v-for="anim in animList"
-                :key="anim.key"
-                @click="handleSwitch(anim.key)"
-                class="h-12 p-2 rounded shadow-md cursor-pointer hover:scale-110 transition-all"
-                :src="`/img/anim/${anim.key}/icon.png`"
-                alt="Avatar"
-            />
-        </div>
-        <!-- 介绍区 -->
-        <div class="flex-1/5 px-5 pb-5 flex flex-col">
-            <h1 class="font-bold">{{ currentAnim?.name }}</h1>
-            <p class="text-gray-500">
-                {{ currentAnim?.description }}
-            </p>
+            </div>
+            <!-- 介绍区 -->
+            <div class="flex-1/5 px-5 pb-5 flex flex-col">
+                <h1 class="font-bold">{{ currentAnim?.name }}</h1>
+                <p class="text-gray-500">
+                    {{ currentAnim?.description }}
+                </p>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 const animList = [
+    {
+        key: "bangdream/tv",
+        name: "BanG Dream!",
+        description: "Girls Band Party.",
+    },
     {
         key: "bangdream/mygo",
         name: "BanG Dream! It's MyGO!!!!!",
