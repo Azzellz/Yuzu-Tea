@@ -1,9 +1,6 @@
 <template>
     <div class="w-150 min-h-50">
-        <TypeText
-            class="text-4xl mx-auto mb-5 color-white"
-            text="What game do I play?"
-        />
+        <div class="text-4xl mb-5 color-white">Game?</div>
         <div class="shadow-lg flex flex-col rounded-md bg-slate-50">
             <!-- 游戏背景图 -->
             <div class="flex-2/5">

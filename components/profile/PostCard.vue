@@ -1,6 +1,6 @@
 <template>
     <div class="w-120 min-h-50">
-        <TypeText class="text-4xl mb-5 color-white" text="Who I am?" />
+        <div class="text-4xl mb-5 color-white">Me?</div>
         <div class="shadow-lg flex flex-col rounded-md bg-slate-50">
             <div class="flex-2/5">
                 <img class="rounded-t-md" src="/img/ksm.png" />

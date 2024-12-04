@@ -7,17 +7,15 @@
 <script setup lang="ts">
 import Typed from "typed.js";
 
-const { text, startDelay, typeSpeed } = withDefaults(
-    defineProps<{
-        text: string;
-        startDelay?: number;
-        typeSpeed?: number;
-    }>(),
-    {
-        startDelay: 1000,
-        typeSpeed: 50,
-    }
-);
+const {
+    text,
+    startDelay = 1000,
+    typeSpeed = 50,
+} = defineProps<{
+    text: string;
+    startDelay?: number;
+    typeSpeed?: number;
+}>();
 let typed: Typed | null = null;
 const containerRef = ref<HTMLDivElement | null>(null);
 onMounted(() => {

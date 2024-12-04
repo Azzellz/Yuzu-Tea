@@ -1,9 +1,6 @@
 <template>
     <div class="w-120 min-h-50">
-        <TypeText
-            class="text-4xl mx-auto mb-5 color-white"
-            text="What anime am I watching?"
-        />
+        <div class="text-4xl mb-5 color-white">Anim?</div>
         <div class="shadow-lg flex flex-col rounded-md bg-slate-50">
             <!-- 背景图 -->
             <div class="flex-2/5">

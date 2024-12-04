@@ -1,9 +1,6 @@
 <template>
     <div class="w-125">
-        <TypeText
-            class="text-4xl mx-auto mb-5 color-white"
-            text="What is my technology stack?"
-        />
+        <div class="text-4xl mb-5 color-white">Technology Stack?</div>
         <img
             class="w-full"
             src="https://github-readme-stats.vercel.app/api/top-langs/?username=Azzellz&layout=donut"

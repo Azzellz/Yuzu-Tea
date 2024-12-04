@@ -1,9 +1,6 @@
 <template>
     <div class="w-150 min-h-50">
-        <TypeText
-            class="text-4xl mx-auto mb-5 color-white"
-            text="What music do I listen to?"
-        />
+        <div class="text-4xl mb-5 color-white">Music?</div>
         <div class="shadow-lg flex flex-col rounded-md bg-slate-50">
             <!-- 背景图 -->
             <div class="flex-2/5">
