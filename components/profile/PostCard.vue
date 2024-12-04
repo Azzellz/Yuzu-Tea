@@ -29,7 +29,7 @@
                         name="material-symbols:book-2"
                         class="cursor-pointer"
                         size="28"
-                        @click="() => jumpTo('https://azzellz.github.io')"
+                        @click="() => jumpTo('https://blog.yuzu-tea.me')"
                     />
                 </div>
             </div>
